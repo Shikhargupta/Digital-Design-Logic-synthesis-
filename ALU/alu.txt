@@ -1,0 +1,16 @@
+module subtractor(result, x, y, control);
+
+input[3:0] x, y;
+input[2:0] control;
+output result;
+reg [4:0] result;
+
+always@(x or y or control)
+case(control)
+3'b000 : result = x +y;
+3'b001 : result = x-y;
+3'b010 : result = x*y;
+default : result = 5'bxxxxx;
+endcase
+
+endmodule
